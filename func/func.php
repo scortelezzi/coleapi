@@ -19,6 +19,7 @@ function limpiarInput( $input ){
 }
 
 function validarToken($token){
+    
     $key = "clAv3Tok3N17031980";
         try{
         $decoded = JWT::decode($token, $key, array('HS256'));
@@ -33,6 +34,12 @@ function validarToken($token){
         respuesta(401, $respuesta);
         die();
     }
+}
+
+function obtenerToken(){
+    $nombre = $_SERVER;
+
+    return $nombre;
 }
 
 ?>

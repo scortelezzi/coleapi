@@ -1,6 +1,5 @@
 <?php
-include_once('func/func.php');
-include_once('config/conn.php');
+//TODO: Verificar perfil de usuario ante cada consulta.
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     
@@ -38,6 +37,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $respuesta["sexos"] = $sexos;
     $respuesta["total"] = $total;
     respuesta(200, $respuesta);
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+    //$parametros = file_get_contents('php://input');
+    //parse_str($parametros, $parametros);
+    //validarToken($parametros['token']);
+
+    //$sql = "DELETE FROM sexos WHERE id = ?";
+    //$stmt = mysqli_prepare($conn, $sql);
+    //mysqli_stmt_bind_param($stmt, 'i', $parametros['id']);
+    //mysqli_stmt_execute($stmt);
+    //mysqli_stmt_store_result($stmt);
+    //$resultado = mysqli_stmt_affected_rows($stmt);
+
+    //if($resultado == 0){
+
+    //    $respuesta["ok"] = false;
+    //    $respuesta["resultado"] = "No se encontro un sexo con id ".$parametros['id'];
+    //    respuesta(401, $respuesta);
+
+    //}
+
+    //if($resultado == 1){
+
+        //$respuesta["ok"] = true;
+        //$respuesta["resultado"] = "Se elimino el sexo";
+        //respuesta(200, $respuesta);
+
+    //}
+    
+    $headers = apache_request_headers();
+    
+    $respuesta["ok"] = true;
+    $respuesta["token"] = $headers;
+    
+    respuesta(200, $respuesta);
+
+
+
+
 }
 
 
